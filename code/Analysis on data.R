@@ -55,7 +55,7 @@ tripdata_2021 %>%
 tripdata_2021 %>%
   mutate(weekday = wday(started_at, label = TRUE)) %>%  
   group_by(member_casual, weekday) %>%  
-  summarise(number_of_rides = n(), average_duration_min = 	mean(ride_length/60)) %>%
+  summarise(number_of_rides = n(), average_duration_min = mean(ride_length/60)) %>%
   arrange(member_casual, weekday) %>%  
   ggplot(aes(x = weekday, y = average_duration_min, fill = member_casual)) + 	
   geom_col(position =   "dodge")+  
@@ -64,7 +64,7 @@ tripdata_2021 %>%
   scale_y_continuous(labels = comma)+
   theme(legend.title=element_blank())
 
-# Number of rides with ridable type and casual/member
+# Number of rides with rideable type and casual/member
 
 tripdata_2021 %>%  
   mutate(weekday = wday(started_at, label = TRUE)) %>%  
@@ -75,7 +75,7 @@ tripdata_2021 %>%
   scale_y_continuous(labels = comma)+  
   facet_wrap(~member_casual)
 
-# Duration with ridable type and casual/member
+# Duration with rideable type and casual/member
 
 tripdata_2021 %>%  
   mutate(weekday = wday(started_at, label = TRUE)) %>%  
@@ -111,7 +111,6 @@ tripdata_2021 %>%
   scale_y_continuous(labels = comma) + 
   labs(title = "Usage By Month") +  
   theme(legend.title=element_blank())
-
 
 
 
